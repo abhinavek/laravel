@@ -1,0 +1,51 @@
+.register-page {
+    background: #eaeaea;
+}
+.textbox-append
+{
+    margin-bottom: 15px;
+}
+.text-col-append
+{
+	padding: 0px;
+}
+.remove-btn
+{
+	color: #ff7b7b;
+    margin-top: 1px;
+    font-size: 20px;
+    padding-left: 19px;
+}
+.remove-btn:hover
+{
+	color: #ff7b7b;
+}
+.btn-add
+{
+	border: 0px;
+    background-color: #81b981;
+    color: white;
+    border-radius: 3px;
+    margin-top: 2.1em;
+}
+.row-main
+{
+	background-color: #e8e8e8;
+    margin-top: 5em;
+    padding: 2em;
+}
+.title-form
+{
+	border-bottom: 1px solid gainsboro;
+    padding-bottom: 6px;
+    color: #3c8dbc;
+}
+.reg-col
+{
+	margin-top: 3em;
+}
+.already-col
+{
+	text-align: center;
+    margin-top: 1em;
+}

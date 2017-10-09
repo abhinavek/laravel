@@ -1,0 +1,72 @@
+.row-custom
+{
+	padding: 0em 1em 1em 0em;
+    background-color: white;
+    margin: 0em;
+}
+.icon-calender
+{
+	position: absolute;
+    top: 1.8em;
+    color: #a9a4a4;
+    right: 24px;
+    font-size: 24px;
+}
+.textbox-date
+{
+	position: relative;
+}
+.calender
+{
+	margin-top: 1em;
+}
+.pad-rating-view
+{
+	margin-top: 1em;
+    padding: 1em 0em;
+}
+.span-report
+{
+	border-bottom: 1px solid gray;
+    padding-bottom: 4px;
+    font-weight: 600;
+}
+.dash-info
+{
+	padding: 1em 5em;
+}
+.small-box:hover .icon {
+    font-size: 30px;
+}
+.small-box .icon {
+    -webkit-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+    position: absolute;
+    top: 1px;
+    right: 10px;
+    z-index: 0;
+    font-size: 30px;
+    color: rgba(0, 0, 0, 0.15);
+}
+.col-table {
+	clear: both;
+    margin-top: 5em;
+    padding: 0em 5em;
+}
+.table>tbody>tr>th {
+    background-color: #3c8dbc;
+    color: white;
+}
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+    border-top: 1px solid #f4f4f4;
+    text-align: center;
+}
+.small-box h3 {
+    font-size: 20px;
+}
+@media screen and (max-width: 767px) {
+	.icon-calender {
+    top: 1.3em;
+	}
+}

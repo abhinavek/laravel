@@ -1,0 +1,116 @@
+.row-custom {
+    padding: 1em 1em 1em 0em;
+    background-color: white;
+    margin: 0em;
+}
+.col-enquiry
+{
+	padding: 3em 30em 1em 30em;
+}
+.box-struct
+{
+	height: 100px;
+	text-align: center;
+	padding-top: 3em;
+    color: white;
+}
+.ad-available
+{
+	background-color: #3c8dbc;
+}
+.ad-soldout
+{
+	background-color: #b5b2b2;
+}
+.ad-5-slide
+{
+	width: 20%;
+    float: left;
+    padding: 0px 15px;
+}
+/*manage banner css starts here*/
+.mban-select
+{
+	width: 25%!important;
+}
+.mban-img-picture
+{
+	width: 40px;
+    height: 40px;
+    display: block;
+    margin: 0 auto;
+}
+.ul-banner-manage{
+	 list-style: none;
+    padding-left: 0px;
+}
+.ul-banner-manage li
+{
+	display: inline;
+}
+.ul-banner-manage li a
+{
+	color: #0079c2;
+	padding: 0px 8px;
+}
+.ul-banner-manage li a:hover
+{
+	text-decoration: underline;
+}
+.mban-tab-col
+{
+	margin-top: 2em;
+}
+.mbanner-copy
+{
+	border: 1px solid #222d32;
+    padding: 1em;
+    border-radius: 1px;
+    margin-top: 2em;
+}
+.form-img-col
+{
+	margin-bottom: 21px!important;
+}
+.mar-add-banner
+{
+	margin-top: 1em;
+}
+.display_none_close
+{
+	display: none;
+}
+.icon-calender {
+    position: absolute;
+    top: 1.2em;
+    color: #a9a4a4;
+    right: 24px;
+    font-size: 24px;
+}
+.textbox-date {
+    position: relative;
+}
+.textbox-search
+{
+	position: relative;
+}
+.search-icon
+{
+	border: 0;
+    background: rgba(255, 255, 255, 0);
+    position: absolute;
+    top: 29px;
+    right: 21px;
+}
+/*ends  here*/
+
+@media screen and (max-width: 767px) {
+	.ad-5-slide
+	{
+		width: 100%;
+	}
+	.mban-select
+	{
+		width: 100%!important;
+	}
+}

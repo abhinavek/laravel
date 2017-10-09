@@ -1,0 +1,55 @@
+.row-custom {
+    padding: 1em 1em 1em 0em;
+    background-color: white;
+    margin: 0em;
+}
+.head-h3
+{
+    font-size: 24px;
+}
+.image-main
+{
+	width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    display: block;
+    border: 15px solid #e6e4e4;
+    border-radius: 4px;
+}
+.table>tbody>tr>th {
+    background-color: #3c8dbc;
+    color: white;
+}
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+    border-top: 1px solid #f4f4f4;
+    text-align: center;
+}
+@media screen and (max-width: 767px) {
+    .image-main
+    {
+        width: 100%;
+        height: auto;
+    }
+    .head-h3
+    {
+        font-size: 14px;
+    }
+    .bid-head
+    {
+        font-size: 14px;
+    }
+}
+@media screen and (min-width:767px) and (max-width:1150px) {
+    .image-main
+    {
+        width: 100%;
+        height: auto;
+    }
+    .head-h3 {
+        font-size: 15px;
+    }
+    .bid-head
+    {
+        font-size: 15px;
+    }
+}
