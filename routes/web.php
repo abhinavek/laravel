@@ -56,4 +56,7 @@ Route::get('/address', function () {
 Route::get('events',["as"=>"events.get","uses"=>"EventController@getevents"]);
 Route::post('events',["as"=>"events.post","uses"=>"EventController@postevents"]);
 
+//analytics
+Route::get('analytics',["as"=>"analytics.get","uses"=>"AnalyticsController@analytics"]);
+
 Route::post('/post', 'DemoController@post');

@@ -28,4 +28,6 @@ class DemoController extends Controller
         return response()->json(['response' => 'This is get method']);
 
     }
+
+
 }
