@@ -9,7 +9,7 @@
         @endif
         <div class="col-md-8">
             <h1>Create New Post</h1>
-            {!! Form::open(['route' => 'posts.store']) !!}
+            {!! Form::open(['route' => 'posts.store','enctype' => "multipart/form-data"]) !!}
                 {{Form::label('title','Title:')}}
                 {{Form::text('title',null,array('class'=>'form-control'))}}
                 {{Form::label('body','Post:')}}
@@ -28,6 +28,14 @@
                     <option value="{{$tag->id}}">{{$tag->name}}</option>
                 @endforeach
                 </select>
+            <hr>
+            {!! Form::file('image1', array('class' => 'image','id'=>'image1' ,'onchange'=>'imageview(this)')) !!}
+            <img src="#" id="image1image">
+            {!! Form::file('image2', array('class' => 'image','id'=>'image2' ,'onchange'=>'imageview(this)')) !!}
+            <img src="#" id="image2image">
+            {!! Form::file('image3', array('class' => 'image','id'=>'image3' ,'onchange'=>'imageview(this)')) !!}
+            <img src="#" id="image3image">
+            <hr>
                 {{Form::submit('submit',array('class'=>'btn btn-success btn-lg','style'=>'margin-top:10px;'))}}
             {!! Form::close() !!}
         </div>
@@ -37,6 +45,9 @@
     {{Html::style('css/select2.min.css')}}
 @endsection
 @section('scripts')
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
     {{Html::script('js/select2.full.min.js')}}
     {{Html::script('js/app/posts.js')}}
+    {{Html::script('js/app/imageview.js')}}
 @endsection

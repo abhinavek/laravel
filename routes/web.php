@@ -45,7 +45,6 @@ Route::resource('tags','TagController');
 Route::post('comments/{post_id}',["as"=>"comments.store","uses"=>"CommentController@store"]);
 
 
-
 Route::get('/test', 'CategoryController@test');
 Route::get('/test/name/{name}','DemoController@post');
 Route::get('/address', function () {
@@ -58,5 +57,9 @@ Route::post('events',["as"=>"events.post","uses"=>"EventController@postevents"])
 
 //analytics
 Route::get('analytics',["as"=>"analytics.get","uses"=>"AnalyticsController@analytics"]);
+
+//Authentication
+Route::get('auth',["as"=>"auth.get","uses"=>"AuthenticationController@auth"]);
+
 
 Route::post('/post', 'DemoController@post');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Image;
 use App\Tag;
 use Illuminate\Http\Request;
 use App\Post;
@@ -60,6 +61,24 @@ class PostController extends Controller
         $post->category_id = $request->category;
         $post->save();
         $post->tags()->sync($request->tags,false);
+        $i = 0;
+        $images = array();
+
+        $imageName = rand().'.'.$request->image1->getClientOriginalExtension();
+        $request->image1->move(public_path('images'), $imageName);
+        $images[]=array('post_id'=>$post->id,'image'=>'images/'.$imageName);
+
+        $imageName = rand().'.'.$request->image2->getClientOriginalExtension();
+        $request->image2->move(public_path('images'), $imageName);
+        $images[]=array('post_id'=>$post->id,'image'=>'images/'.$imageName);
+
+        $imageName = rand().'.'.$request->image3->getClientOriginalExtension();
+        $request->image3->move(public_path('images'), $imageName);
+        $images[]=array('post_id'=>$post->id,'image'=>'images/'.$imageName);
+
+        $image = new Image();
+        $image->insert($images);
+
         Session::flash('success','Post saved successfully');
         return redirect()->route('posts.show',$post->id);
     }

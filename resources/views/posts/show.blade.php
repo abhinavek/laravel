@@ -9,6 +9,13 @@
                 <h1>{{$post->title}}</h1>
                 <p class="lead">{{$post->body}}</p>
                 <hr>
+                <div class="col-lg-12">
+                    <div class="col-md-4">
+                        @foreach($post->images as $image)
+                            <img src="{{ URL::asset($image->image) }}" class="img-responsive img-bordered well">
+                        @endforeach
+                    </div>
+                </div>
                 <div class="tags">
                 <p>Tags : </p>
                 @foreach($post->tags as $tag)
