@@ -7,6 +7,12 @@
         @endif
         <div class="col-md-8">
             <h1>{{$post->title}}</h1>
+            @foreach($post->images as $image)
+                <div class="col">
+                    <img src="{{url('images',$image->image)}}" alt="{{$image->image}}">
+                </div>
+
+            @endforeach
             <p class="lead">{{$post->body}}</p>
             <hr>
             <p>Posted in {{$post->category->category_name}}</p>

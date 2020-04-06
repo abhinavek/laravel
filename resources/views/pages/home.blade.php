@@ -13,25 +13,28 @@
 <!-- end of header .row -->
 
 <div class="row">
-    @foreach($posts as $post)
     <div class="col-md-8">
+        @foreach($posts as $post)
         <div class="post">
             <h3>{{$post->title}}</h3>
             <p>{{$post->body}}</p>
             <a href="{{route('blog.single',$post->slug)}}" class="btn btn-primary">Read More</a>
         </div>
         <hr>
-    </div>
-    @endforeach
-    <div class="row">
-        <div class="col-md-12">
-            <div class="text-center">
-                {!! $posts->links() !!}
+        @endforeach
+        <div class="row">
+            <div class="col-md-8">
+                <div class="text-center">
+                    {!! $posts->links() !!}
+                </div>
             </div>
+
         </div>
     </div>
-        <div class="col-md-3 col-md-offset-1">
+    <div class="col-md-3 col-md-offset-1">
         <h2>Sidebar</h2>
     </div>
 </div>
+
+
 @endsection

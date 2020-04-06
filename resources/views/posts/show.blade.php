@@ -1,5 +1,5 @@
 @extends('main')
-@section('tittle',' | New Post')
+@section('tittle',' | '.$post->title)
 @section('content')
     <div class="row">
         @if(Session::has('success'))
@@ -28,16 +28,16 @@
                 <div class="well">
                     <dl class="dl-horizontal">
                         <dt>Slug : </dt>
-                        <dt><a href="{{route('blog.single',$post->slug)}}">{{$post->slug}}</a> </dt>
+                        <dd><a href="{{route('blog.single',$post->slug)}}">{{$post->slug}}</a> </dd>
                     </dl>
                     <p class="lead">Posted in <span style="color: #2e6da4;">{{$post->category->category_name}}</span></p>
                     <dl class="dl-horizontal">
                         <dt>Created at : </dt>
-                        <dt>{{$post->created_at}}</dt>
+                        <dd>{{date('d-m-Y G:i',strtotime($post->created_at))}}</dd>
                     </dl>
                     <dl class="dl-horizontal">
                         <dt>Last update : </dt>
-                        <dt>{{$post->updated_at}}</dt>
+                        <dd>{{$post->updated_at}}</dd>
                     </dl>
                     <div class="row">
                         <div class="col-sm-6"><a href="{{route('posts.edit',$post->id)}}" class="btn btn-primary">Edit</a></div>

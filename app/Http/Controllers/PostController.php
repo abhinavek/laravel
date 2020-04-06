@@ -1,5 +1,6 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
 use App\Category;
@@ -8,6 +9,9 @@ use App\Tag;
 use Illuminate\Http\Request;
 use App\Post;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
+//use Intervention\Image\Facades\Image as Img;
+
 
 class PostController extends Controller
 {
@@ -54,27 +58,48 @@ class PostController extends Controller
             'slug' => 'required',
             'category' => 'required',
         ));
+        //print_r($request->image1);exit();
         $post = new Post;
         $post->title = $request->title;
         $post->body = $request->body;
         $post->slug = $request->slug;
         $post->category_id = $request->category;
+        $post->author = Auth::id();
         $post->save();
         $post->tags()->sync($request->tags,false);
         $i = 0;
+
         $images = array();
+        $location = public_path('images/');
+        if($request->hasFile('image1'))
+        {
+            $image = $request->file('image1');
+            $imageName = rand().'.'.$image->getClientOriginalExtension();
+            $request->image1->move(public_path('images'), $imageName);
+//            Img::make($image)->save($location.$imageName);
+            $images[]=array('post_id'=>$post->id,'image'=>'images/'.$imageName);
+        }
+        if($request->hasFile('image2'))
+        {
+            $image = $request->file('image2');
+            $imageName = rand().'.'.$image->getClientOriginalExtension();
+            $request->image1->move(public_path('images'), $imageName);
+//            Image::make($image)->save($location.$imageName);
+            $images[]=array('post_id'=>$post->id,'image'=>'images/'.$imageName);
+        }
+        if($request->hasFile('image3'))
+        {
+            $image = $request->file('image3');
+            $imageName = rand().'.'.$image->getClientOriginalExtension();
+            $request->image1->move(public_path('images'), $imageName);
+//            Image::make($image)->save($location.$imageName);
+            $images[]=array('post_id'=>$post->id,'image'=>'images/'.$imageName);
+        }
 
-        $imageName = rand().'.'.$request->image1->getClientOriginalExtension();
-        $request->image1->move(public_path('images'), $imageName);
-        $images[]=array('post_id'=>$post->id,'image'=>'images/'.$imageName);
-
-        $imageName = rand().'.'.$request->image2->getClientOriginalExtension();
-        $request->image2->move(public_path('images'), $imageName);
-        $images[]=array('post_id'=>$post->id,'image'=>'images/'.$imageName);
-
-        $imageName = rand().'.'.$request->image3->getClientOriginalExtension();
-        $request->image3->move(public_path('images'), $imageName);
-        $images[]=array('post_id'=>$post->id,'image'=>'images/'.$imageName);
+        #OLD METHOD
+//        $imageName = rand().'.'.$request->image2->getClientOriginalExtension();
+//        $request->image2->move(public_path('images'), $imageName);
+//        $images[]=array('post_id'=>$post->id,'image'=>'images/'.$imageName);
 
         $image = new Image();
         $image->insert($images);
@@ -154,7 +179,7 @@ class PostController extends Controller
         $post->delete($id);
         $post->tags()->detach();
         Session::flash('success',$post->title.' Deleted successfully');
-        $posts = Post::orderBy('id','desc')->paginate(5);
-        return redirect()->route('posts.index')->withPosts($posts);
+        //$posts = Post::orderBy('id','desc')->paginate(5);
+        return redirect()->route('posts.index');
     }
 }

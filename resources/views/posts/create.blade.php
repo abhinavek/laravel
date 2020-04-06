@@ -9,7 +9,10 @@
         @endif
         <div class="col-md-8">
             <h1>Create New Post</h1>
-            {!! Form::open(['route' => 'posts.store','enctype' => "multipart/form-data"]) !!}
+            {{--{!! Form::open(['route' => 'posts.store','enctype' => "multipart/form-data", 'files' => true ]) !!}--}}
+            <form action="{{route('posts.store')}}" enctype="multipart/form-data" method="post">
+                {!! csrf_field() !!}
+                <input type="hidden" name="method" value="post">
                 {{Form::label('title','Title:')}}
                 {{Form::text('title',null,array('class'=>'form-control'))}}
                 {{Form::label('body','Post:')}}
@@ -37,7 +40,8 @@
             <img src="#" id="image3image">
             <hr>
                 {{Form::submit('submit',array('class'=>'btn btn-success btn-lg','style'=>'margin-top:10px;'))}}
-            {!! Form::close() !!}
+            </form>
+            {{--{!! Form::close() !!}--}}
         </div>
     </div>
 @endsection
